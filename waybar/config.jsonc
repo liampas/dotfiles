@@ -1,45 +1,33 @@
 // -*- mode: jsonc -*-
 {
-     "layer": "top", // Waybar at top layer
-     "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 10, // Waybar height (to be removed for auto height)
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "spacing": 10, // Gaps between modules (4px)
+    "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "margin-bottom": 5, //gap between idk(either the edge of the screen or the waybar) and the windows
     "modules-left": [
+
         "hyprland/workspaces",
         "custom/media"
     ],
     "modules-center": [
-        //"hyprland/window",
-        "custom/info",
-        "custom/achievements",
-        "custom/notes",
-        "custom/clock",
-        "custom/guides",
-        "custom/discussions",
-        "custom/image",
-        "custom/friends",
-        //"custom/browser",
-        "custom/controller",
-        "custom/music",
-        //"custom/rec",
-        "custom/settings",
-        "custom/min"
+        "hyprland/window"
     ],
     "modules-right": [
         //"mpd",
         //"idle_inhibitor",
         "pulseaudio",
         "network",
-        "custom/achievements",
         "power-profiles-daemon",
+        "temperature",
+        "keyboard-state",
+        "hyprland/language",
         "battery",
-        //"battery#bat2",
+        "battery#bat2",
         "clock",
+        "tray",
         "custom/power"
-        //"wlr/taskbar"
     ],
     // Modules configuration
     // "sway/workspaces": {
@@ -67,110 +55,15 @@
             "unlocked": ""
         }
     },
-// 󰋼
-
-    "custom/info": {
-        "exec": "/home/liam/.config/waybar/scripts/info_status.sh",
-        "interval": 1,
-        "tooltip": true,
-        "tooltip-format": "Game Overview",
-        "on-click": "kitty --class info",
-        "class": "custom-info",
-        "return-type": "json"
-    }
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
     },
-    "custom/achievements": {
-        "exec": "/home/liam/.config/waybar/scripts/achievements_status.sh",
-        "interval": 1,
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
         "tooltip": true,
-        "tooltip-format": "Achievements",
-        "on-click": "kitty",
-        "class": "custom-achievements",
-        "return-type": "json"
-    },
-    "custom/notes": {
-        "format": "  ",
-        "tooltip": true,
-        "tooltip-format": "Notes",
-        "on-click": "obsidian",
-        "on-click-right": "kate"
-    },
-    "custom/clock": {
-        "format": " 󰦖 ",
-        "tooltip": true,
-        "tooltip-format": "Clock",
-        "on-click": "",
-        "on-click-right": ""
-    },
-    "custom/guides": {
-        "format": " 󰂺 ",
-        "tooltip": true,
-        "tooltip-format": "Guides",
-        "on-click": "",
-        "on-click-right": ""
-    },
-    "custom/discussions": {
-        "format": "  ",
-        "tooltip": true,
-        "tooltip-format": "Discussions",
-        "on-click": "discord",
-        "on-click-right": ""
-    },
-    "custom/image": {
-        "format": "  ",
-        "tooltip": true,
-        "tooltip-format": "Recordings &amp; Screenshots",
-        "on-click": "gwenview",
-        "on-click-right": ""
-    },
-    "custom/friends": {
-        "format": "  ",
-        "tooltip": true,
-        "tooltip-format": "Friends",
-        "on-click": "echo you have no friends",
-        "on-click-right": ""
-    },
-    "custom/browser": {
-        "exec": "/home/liam/.config/waybar/scripts/browser-status.sh",
-        "interval": 1,
-        "on-click": "firefox",
-        "class": "custom-browser",
-        "return-type": "json"
-    },
-    "custom/controller": {
-        "format": " 󰊗 ",
-        "tooltip": true,
-        "tooltip-format": "Controller Settings",
-        "on-click": "",
-        "on-click-right": ""
-    },
-    "custom/music": {
-        "format": "  ",
-        "tooltip": true,
-        "tooltip-format": "Soundtrack Player",
-        "on-click": "vlc",
-        "on-click-right": ""
-    },
-    "custom/rec": {
-        "format": " 󰑋 ",
-        "tooltip": true,
-        "tooltip-format": "Game Recordings",
-        "on-click": "obs", //I have no idea if this will work cuz I dont have obs installed ;)
-        "on-click-right": ""
-    },
-    "custom/settings": {
-        "format": "  ",
-        "tooltip": true,
-        "tooltip-format": "Settings",
-        "on-click": "kitty ~/.config",
-        "on-click-right": ""
-    },
-    "custom/min": {
-        "format": "  ",
-        "tooltip": true,
-        "tooltip-format": "Minimize Windows",
-        "on-click": "hyprctl dispatch moveactive 3000 0",
-        "on-click-right": "hyprctl dispatch moveactive 3000 0"
+        "tooltip-format": "{app}: {title}"
     },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
