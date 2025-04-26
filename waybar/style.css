@@ -1,0 +1,222 @@
+window#waybar {
+    background-color: transparent;
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+
+#workspaces button {
+    background: #1f1f1f;
+    color: #ffffff;
+    border-radius: 20px;
+
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button:hover {
+    background: lightblue;
+    color: black;
+    border-bottom: 3px solid #ffffff;
+
+}
+
+#workspaces button.focused {
+    background: #1f1f1f;
+}
+
+#workspaces button.focused:hover {
+    background: lightblue;
+    color: black;
+    border-bottom: 3px solid #ffffff;
+
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#mode {
+    background-color: #64727D;
+    border-bottom: 3px solid #ffffff;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#custom-media,
+#custom-launcher,
+#custom-power,
+#custom-layout,
+#custom-updater,
+#custom-snip,
+#custom-wallpaper,
+#tags,
+#taskbar,
+#tray,
+#mode,
+#idle_inhibitor,
+#mpd {
+    padding: 0 10px;
+    color: #ffffff;
+}
+
+#window,
+#workspaces {
+    margin: 0px 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0px;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0px;
+}
+
+#clock {
+    background-color: #171717;
+    color: #ffffff;
+}
+
+#battery {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+#battery.charging, #battery.plugged {
+    color: #ffffff;
+    background-color: #26A65B;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#network {
+    background-color: #171717;
+    color: #ffffff;
+}
+
+#network.disconnected {
+    background-color: #171717;
+    color: red;
+}
+
+#pulseaudio {
+    background-color: #171717;
+    color: #ffffff;
+}
+
+#pulseaudio.muted {
+    background-color: #171717;
+    color: red;
+}
+
+/*
+#custom-button1, #custom-button2, #custom-achievements, #custom-button3, #custom-notes, #custom-button4, #custom-clock, #custom-button5, #custom-guides, #custom-button6, #custom-discussions, #custom-button7, #custom-image, #custom-button8, #custom-friends, #custom-button9, #custom-browser, #custom-button10, #custom-controller, #custom-button11, #custom-music, #custom-button12, #custom-settings, #custom-button13, #custom-min {
+background-color: #23262e;
+color: #dfe3e6;
+font-size: 25px;
+min-width: 30px;
+min-height: 30px;
+padding: 0;
+margin: 0 5px;
+border-radius: 5px;
+}
+*/
+/*
+#custom-info,#custom-achievements, #custom-notes, #custom-clock, #custom-guides, #custom-discussions, #custom-image, #custom-friends, #custom-controller, #custom-music, #custom-settings, #custom-min {
+font-size: 40px;
+padding: 0px;
+min-height: 0;
+margin: 20px 20px;
+font-size: 40px;
+background-position: center;
+background-repeat: no-repeat;
+background-size: contain;
+color:#171717;
+}
+
+
+/
+#custom-info,#custom-achievements, #custom-notes, #custom-clock, #custom-guides, #custom-discussions, #custom-image, #custom-friends, #custom-browser, #custom-controller, #custom-music, #custom-settings, #custom-min:hover {
+box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.3);
+}
+*/
+
+
+#custom-info, #custom-achievements {
+font-size: 40px;
+padding: 0px;          /* Less padding = smaller button */
+min-height: 0;         /* Prevent default height */
+margin: 20px 20px;
+font-size: 40px;
+}
+#custom-info.info-inactive {
+    background-image: url('/home/liam/.config/waybar/icons/info.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+#custom-info.info-active {
+    background-image: url('/home/liam/.config/waybar/icons/info2.png');background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#custom-info:hover {
+box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.1);
+}
+
+
+
+#custom-achievements {
+font-size: 40px;
+padding: 0px;          /* Less padding = smaller button */
+min-height: 0;         /* Prevent default height */
+margin: 20px 20px;
+font-size: 40px;
+}
+
+#custom-achievements.achievements-inactive {
+    background-image: url('/home/liam/.config/waybar/icons/medal.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+#custom-achievements.achievements-active {
+    background-image: url('/home/liam/.config/waybar/icons/medal2.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#custom-achievements:hover {
+    box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.1);
+}
+
+
+
+
+
+
