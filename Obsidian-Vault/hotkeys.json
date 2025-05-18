@@ -1,1 +1,10 @@
-{}
+{
+  "nldates-obsidian:nlp-time": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "."
+    }
+  ]
+}
