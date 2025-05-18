@@ -55,6 +55,12 @@
         "icon": "LiListTodo",
         "for": "everything",
         "order": 7
+      },
+      {
+        "rule": "image",
+        "icon": "LiImage",
+        "for": "everything",
+        "order": 9
       }
     ],
     "extraMargin": {

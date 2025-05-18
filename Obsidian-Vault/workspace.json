@@ -25,14 +25,12 @@
             "id": "e4b68c911b43d04f",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "Git-Cloud/03-linux/Cheat sheets/Git.md",
-                "mode": "source",
-                "source": false
+                "file": "Git-Cloud/01-daily-notes/images/WIN 11 btw.png"
               },
-              "icon": "lucide-file",
-              "title": "Git"
+              "icon": "lucide-image",
+              "title": "WIN 11 btw"
             }
           },
           {
@@ -193,10 +191,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e4b68c911b43d04f",
+  "active": "974b20bfe8436206",
   "lastOpenFiles": [
-    "Git-Cloud/03-linux/Cheat sheets/bash.md",
+    "Git-Cloud/01-daily-notes/2025-05-17--Saturday.md",
+    "Git-Cloud/01-daily-notes/images/WIN 11 btw.png",
+    "Git-Cloud/01-daily-notes/2025-05-18--Sunday.md",
     "Git-Cloud/03-linux/Cheat sheets/Git.md",
+    "Git-Cloud/03-linux/Cheat sheets/bash.md",
     "Git-Cloud/06-obsidian/Untitled 1.md",
     "Git-Cloud/06-obsidian/Untitled.md",
     "Git-Cloud/04-PC/leds/Bluetooth LED Strip.md",
@@ -211,7 +212,6 @@
     "202505180057.md",
     "202505180056.md",
     "Untitled.md",
-    "Git-Cloud/01-daily-notes/2025-05-18--Sunday.md",
     "Git-Cloud/03-linux/hyprland ricing/ideas/ideas.canvas",
     "Git-Cloud/03-linux/hyprland ricing/ideas/make an usable version of the overlay.md",
     "Git-Cloud/03-linux/hyprland ricing/ideas for hyprland .config.canvas",
@@ -223,7 +223,6 @@
     "Git-Cloud/03-linux/hyprland ricing/ideas",
     "Git-Cloud/01-daily-notes/April/2025-04-06--Sunday.md",
     "98-archive/A&W burger by layer.md",
-    "98-archive/Arch setup.md",
     "03-linux/hyprland ricing/ideas for hyprland .config.canvas",
     "02-school/archive/booktube/booktube.canvas",
     "01-daily-notes/images/I'M_GONNA_TOUCH_YOU.png",
@@ -235,7 +234,6 @@
     "01-daily-notes/images/LES_ITSS_C'EST_DU_REEL.png",
     "01-daily-notes/images/root.png",
     "01-daily-notes/images/BONER.png",
-    "01-daily-notes/images/CuSO(aq).png",
     "98-archive",
     "07-random ideas/07-memories",
     "07-random ideas",
