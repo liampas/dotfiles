@@ -1,0 +1,4 @@
+.markdown-embed {
+  border-left: none !important;
+  padding-left: 0 !important; /* default is 8px */
+}
