@@ -27,6 +27,7 @@
         "battery",
         //"battery#bat2",
         "clock",
+        "custom/notifications",
         "custom/power"
     ],
     "keyboard-state": {
@@ -186,5 +187,15 @@
             "sleep": "systemctl sleep",
             "exit": "hyprctl dispatch exit",
         }
+    },
+
+    "custom/notifications": {
+        "exec": "~/.config/waybar/notification-toggle.sh",
+        "on-click": "swaync-client -d",
+        "interval": 5,
+        "return-type": "json"
+        }
     }
+
+
 }

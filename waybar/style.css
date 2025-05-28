@@ -215,7 +215,13 @@ font-size: 40px;
     box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.1);
 }
 
+#custom-notifications.notifications-on {
+color: red;
+}
 
+#custom-notifications.notifications-off {
+color: green;
+}
 
 
 
