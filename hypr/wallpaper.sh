@@ -11,6 +11,7 @@ hyprctl hyprpaper reload ,"$WALLPAPER"
 
 wal -i $WALLPAPER
 
+
 c1=$(grep "#" ~/.cache/wal/colors | sed -n '1p')
 c2=$(grep "#" ~/.cache/wal/colors | sed -n '2p')
 c3=$(grep "#" ~/.cache/wal/colors | sed -n '3p')
@@ -42,4 +43,25 @@ fi
 hyprctl keyword general:col.active_border "rgb($BORDER)"
 #hyprctl keyword general:col.active_border "0xff$BORDER"
 notify-send $WALLPAPER
-notify-send 0xff$BORDER
+#notify-send 0xff$BORDER
+
+#send the color to kitty
+
+#grep '\color1\b' ~/.cache/wal/colors.sh | cut -c10- | rev | cut -c2- | rev
+
+#reload kitty color configs
+kitty @ set-colors --all ~/.config/kitty/kitty.conf
+
+
+#gtk
+
+#oldgtkcolor=$(grep '@define-color theme_selected_bg_color_breeze' ~/.config/gtk-3.0/colors.css)
+
+#gtkcolor=$'@define-color theme_selected_bg_color_breeze '
+#newgtkcolor=$"$gtkcolor$c2$imbadatcoding"
+#imbadatcoding=$";"
+#sed -i "s/$oldgtkcolor/$newgtkcolor/" ~/.config/gtk-3.0/colors.css
+
+
+oldgtkcolor=$(grep '@define-color theme_selected_bg_color_breeze' ~/.config/gtk-3.0/colors.css)
+sed -i "s/$oldgtkcolor//" ~/.config/gtk-3.0/colors.css
