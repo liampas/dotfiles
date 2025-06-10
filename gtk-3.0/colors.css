@@ -52,7 +52,7 @@
 @define-color theme_header_foreground_insensitive_backdrop_breeze #fcfcfc;
 @define-color theme_header_foreground_insensitive_breeze #fcfcfc;
 @define-color theme_hovering_selected_bg_color_breeze #b6152e;
-@define-color theme_selected_bg_color_breeze #871729;
+
 @define-color theme_selected_fg_color_breeze #ffffff;
 @define-color theme_text_color_breeze #fcfcfc;
 @define-color theme_titlebar_background_backdrop_breeze #2a2e32;
