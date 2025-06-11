@@ -15,6 +15,7 @@ if [ $floatingmode -eq 0 ]; then
         sed -i 's/floatingmode=0/floatingmode=1/' ~/.config/hypr/toggles.state
         floatingmode=1
 
+        hyprctl reload
         exit
     else
         #puts every oppened window into tilled
