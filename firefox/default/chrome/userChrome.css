@@ -7,16 +7,23 @@ panelview,
 */
 
 
-/*  Title and generaly the top of the thing    */
+/* remove the min-max-close icons */
+/*
+.titlebar-buttonbox-container{ display: none } 
 
-.titlebar-buttonbox-container{ display: none } /* remove the min-max-close icons */
+/*
+
 
 /* replace the icon of the "navigate up" addon */
 :is(.webextension-browser-action,
     .eom-addon-button)[data-extensionid="navigateup-we@DW-dev"] .toolbarbutton-icon {
         list-style-image: url("chrome://browser/skin/back.svg");
         transform: rotate(90deg);
-    }
+}
+
+
+*/
+
 
 /* hides the menu bar (I dont like when it shows up when I press alt) (I know there is another way to remove it in about:config) */
 #toolbar-menubar {
@@ -40,7 +47,3 @@ display: block !important;
 #context-savepage{
 display: none !important;
 }
-
-
-
-
