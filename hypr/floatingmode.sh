@@ -30,14 +30,8 @@ if [ $floatingmode -eq 0 ]; then
         sed -i 's/floatingmode=1/floatingmode=0/' ~/.config/hypr/toggles.state
         floatingmode=0
 
-        hyprctl --batch "\
-            keyword general:border_size 0;\
-            keyword decoration:shadow:enabled true;\
-            keyword decoration:shadow:range 10;\
-            keyword decoration:dim_around 0.4;\
-            keyword general:snap:enabled true;\
-            keyword plugin:hyprbars:nobar true;\
-            keyword decoration:rounding 1"
+        #enables the snaping
+        hyprctl keyword general:snap:enabled true
 
         exit
 fi
