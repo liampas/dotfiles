@@ -216,11 +216,11 @@ font-size: 40px;
 }
 
 #custom-notifications.notifications-on {
-color: red;
+color: green;
 }
 
 #custom-notifications.notifications-off {
-color: green;
+color: red;
 }
 
 
