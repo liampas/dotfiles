@@ -26,6 +26,20 @@ else
   DND=$"Off"
 fi
 
+# variable for power mode
+power1=$(powerprofilesctl get)
+
+if [ "$power1" = "power-saver" ]; then
+  power=$"Balanced"
+fi
+
+if [ "$power1" = "balanced" ]; then
+  power=$"Performance"
+fi
+
+if [ "$power1" = "performance" ]; then
+  power=$"Eco"
+fi
 
 #notificationmode=$()
 
@@ -67,7 +81,7 @@ floating () { \
 
 
 timetochoose() { \
-    choice=$(printf "window mode: $floatingmode2\\nRandom Wallpaper\\nStart Waybar\\n$night Mode\\nNotifications $DND" | dmenu -c -l 20 -p "Quick Settings: ")
+    choice=$(printf "window mode: $floatingmode2\\nRandom Wallpaper\\nStart Waybar\\n$night Mode\\nNotifications $DND\\nPower: $power" | dmenu -c -l 20 -p "Quick Settings: ")
     case "$choice" in
         "window mode: floating") floating;;
         "window mode: tilling") tilling;;
@@ -76,7 +90,10 @@ timetochoose() { \
         'Night Mode') ~/.config/hypr/night-mode.sh;;
         'Day Mode') killall hyprsunset;;
         'Notifications On') swaync-client -df;;
-        'Notifications Off') swaync-client -dn
+        'Notifications Off') swaync-client -dn;;
+        'Power: Eco') powerprofilesctl set power-saver;;
+        'Power: Balanced') powerprofilesctl set balanced;;
+        'Power: Performance') powerprofilesctl set performance
     esac
 }
 
