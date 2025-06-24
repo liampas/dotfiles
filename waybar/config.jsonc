@@ -190,7 +190,7 @@
     },
 
     "custom/notifications": {
-        "exec": "~/.config/waybar/notification-toggle.sh",
+        "exec": "~/.config/hypr/notification-toggle.sh",
         "on-click": "swaync-client -d",
         "interval": 5,
         "return-type": "json"
