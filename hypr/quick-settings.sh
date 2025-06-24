@@ -21,9 +21,9 @@ fi
 DND=$(swaync-client -D)
 
 if [ "$DND" = "true" ]; then
-  DND=$"Off"
-else
   DND=$"On"
+else
+  DND=$"Off"
 fi
 
 
@@ -75,8 +75,8 @@ timetochoose() { \
         'Start Waybar') ~/.config/hypr/reload-waybar.sh;;
         'Night Mode') ~/.config/hypr/night-mode.sh;;
         'Day Mode') killall hyprsunset;;
-        'Notifications Off') swaync-client -df;;
-        'Notifications On') swaync-client -dn
+        'Notifications On') swaync-client -df;;
+        'Notifications Off') swaync-client -dn
     esac
 }
 
