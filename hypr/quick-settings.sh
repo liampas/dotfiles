@@ -81,7 +81,6 @@ floating () { \
 
 
 timetochoose() { \
-    choice=$(printf "window mode: $floatingmode2\\nRandom Wallpaper\\nStart Waybar\\n$night Mode\\nNotifications $DND\\nPower: $power" | dmenu -c -l 20 -p "Quick Settings: ")
     choice=$(printf "Random Wallpaper\\nwindow mode: $floatingmode2\\nStart Waybar\\n$night Mode\\nNotifications $DND\\nPower: $power\\nDelete Current Wallpaper" | dmenu -c -l 20 -p "Quick Settings: ")
     case "$choice" in
         "window mode: floating") floating;;
@@ -94,7 +93,6 @@ timetochoose() { \
         'Notifications Off') swaync-client -dn;;
         'Power: Eco') powerprofilesctl set power-saver;;
         'Power: Balanced') powerprofilesctl set balanced;;
-        'Power: Performance') powerprofilesctl set performance
         'Power: Performance') powerprofilesctl set performance;;
         'Delete Current Wallpaper') ~/.config/hypr/delete-wallpaper.sh;;
     esac
