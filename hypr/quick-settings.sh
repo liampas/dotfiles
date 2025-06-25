@@ -94,6 +94,8 @@ timetochoose() { \
         'Power: Eco') powerprofilesctl set power-saver;;
         'Power: Balanced') powerprofilesctl set balanced;;
         'Power: Performance') powerprofilesctl set performance
+        'Power: Performance') powerprofilesctl set performance;;
+        'Delete Current Wallpaper') ~/.config/hypr/delete-wallpaper.sh;;
     esac
 }
 
