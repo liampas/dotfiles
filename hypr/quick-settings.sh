@@ -82,6 +82,7 @@ floating () { \
 
 timetochoose() { \
     choice=$(printf "window mode: $floatingmode2\\nRandom Wallpaper\\nStart Waybar\\n$night Mode\\nNotifications $DND\\nPower: $power" | dmenu -c -l 20 -p "Quick Settings: ")
+    choice=$(printf "Random Wallpaper\\nwindow mode: $floatingmode2\\nStart Waybar\\n$night Mode\\nNotifications $DND\\nPower: $power\\nDelete Current Wallpaper" | dmenu -c -l 20 -p "Quick Settings: ")
     case "$choice" in
         "window mode: floating") floating;;
         "window mode: tilling") tilling;;
