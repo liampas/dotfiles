@@ -11,9 +11,9 @@ fi
 
 # variable for day mode
 if pgrep -x "hyprsunset" > /dev/null; then
-    night=$"Day"
+    night=$"day"
     else
-    night=$"Night"
+    night=$"night"
 fi
 
 
@@ -21,24 +21,24 @@ fi
 DND=$(swaync-client -D)
 
 if [ "$DND" = "true" ]; then
-  DND=$"On"
+  DND=$"on"
 else
-  DND=$"Off"
+  DND=$"off"
 fi
 
 # variable for power mode
 power1=$(powerprofilesctl get)
 
 if [ "$power1" = "power-saver" ]; then
-  power=$"Balanced"
+  power=$"balanced"
 fi
 
 if [ "$power1" = "balanced" ]; then
-  power=$"Performance"
+  power=$"performance"
 fi
 
 if [ "$power1" = "performance" ]; then
-  power=$"Eco"
+  power=$"eco"
 fi
 
 #notificationmode=$()
@@ -81,20 +81,20 @@ floating () { \
 
 
 timetochoose() { \
-    choice=$(printf "Random Wallpaper\\nwindow mode: $floatingmode2\\nStart Waybar\\n$night Mode\\nNotifications $DND\\nPower: $power\\nDelete Current Wallpaper" | dmenu -c -l 20 -p "Quick Settings: ")
+    choice=$(printf "random wallpaper\\nwindow mode: $floatingmode2\\nstart waybar\\n$night mode\\nnotifications $DND\\npower: $power\\ndelete current wallpaper" | dmenu -c -l 20 -p "Quick Settings: ")
     case "$choice" in
         "window mode: floating") floating;;
         "window mode: tilling") tilling;;
-        'Random Wallpaper') ~/.config/hypr/wallpaper.sh;;
-        'Start Waybar') ~/.config/hypr/reload-waybar.sh;;
-        'Night Mode') ~/.config/hypr/night-mode.sh;;
-        'Day Mode') killall hyprsunset;;
-        'Notifications On') swaync-client -df;;
-        'Notifications Off') swaync-client -dn;;
-        'Power: Eco') powerprofilesctl set power-saver;;
-        'Power: Balanced') powerprofilesctl set balanced;;
-        'Power: Performance') powerprofilesctl set performance;;
-        'Delete Current Wallpaper') ~/.config/hypr/delete-wallpaper.sh;;
+        'random wallpaper') ~/.config/hypr/wallpaper.sh;;
+        'start waybar') ~/.config/hypr/reload-waybar.sh;;
+        'night mode') ~/.config/hypr/night-mode.sh;;
+        'day mode') killall hyprsunset;;
+        'notifications on') swaync-client -df;;
+        'notifications off') swaync-client -dn;;
+        'power: eco') powerprofilesctl set power-saver;;
+        'power: balanced') powerprofilesctl set balanced;;
+        'power: performance') powerprofilesctl set performance;;
+        'delete current wallpaper') ~/.config/hypr/delete-wallpaper.sh;;
     esac
 }
 

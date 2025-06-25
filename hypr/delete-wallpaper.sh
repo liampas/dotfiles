@@ -10,11 +10,11 @@ deletecurrentwall() { \
 }
 
 timetochoose() { \
-choice=$(printf "Yes\\nNo" | dmenu -p "do you really want to delete this one?" -l 2)
+choice=$(printf "yes\\nno" | dmenu -p "do you really want to delete this one?" -l 2)
 
 case "$choice" in
-  "Yes")deletecurrentwall;;
-  "No")
+  "yes")deletecurrentwall;;
+  "no")
 
 esac
 }
