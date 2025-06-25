@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 WALLPAPER_DIR="$HOME/wallpapers/"
-CURRENT_WALL=$(hyprctl hyprpaper listloaded)
+CURRENT_WALL=$(hyprctl hyprpaper listloaded | head -n 1)
 
 # Get a random wallpaper that is not the current one
 WALLPAPER=$(find "/home/liam/Pictures/wallpapers" -type f ! -name "$(basename "$CURRENT_WALL")" | shuf -n 1)
