@@ -3,7 +3,7 @@
 CURRENT_WALL=$(hyprctl hyprpaper listloaded | head -n 1)
 
 deletecurrentwall() { \
-  rm $CURRENT_WALL
+  mv $CURRENT_WALL ~/.local/share/Trash/files/
   notify-send "wallpaper deleted"
   ~/.config/hypr/wallpaper.sh
 
