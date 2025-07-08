@@ -1,0 +1,66 @@
+* {
+  all: unset; // Unsets everything so you can style everything from scratch
+}
+
+$text: #ffffff;
+$red: #DA4453;
+
+* {
+  font-family: "AurulentSansM Nerd Font", "Symbols Nerd Font";
+}
+
+// Global Styles
+.bar {
+  background-color: #3a3a3a;
+  color: #b0b4bc;
+  padding: 10px;
+}
+
+// Styles on classes (see eww.yuck for more information)
+
+.sidestuff slider {
+  all: unset;
+  color: #ffd5cd;
+}
+
+.metric scale trough highlight {
+  all: unset;
+  background-color: #D35D6E;
+  color: #000000;
+  border-radius: 10px;
+}
+
+.metric scale trough {
+  all: unset;
+  background-color: #4e4e4e;
+  border-radius: 50px;
+  min-height: 3px;
+  min-width: 50px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.label-ram {
+  font-size: large;
+}
+
+.workspaces button:hover {
+  color: #FFFFFF;
+  border: none;
+}
+
+.focus {
+  color: #FF0000;
+}
+
+.battery, .time, .date .tray .speakers .mic .wifi {
+  font-family: "AurulentSansM Nerd Font", "Symbols Nerd Font";
+  color: $text;
+  font-size: 10px;
+}
+
+.battery {
+  .icon.critical {
+    color: $red;
+  }
+}
