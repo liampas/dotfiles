@@ -1,5 +1,3 @@
-(deflisten workspace "scripts/workspace")
-
 (defwidget bar []
   (centerbox :orientation "h"
     (workspaces)
@@ -14,12 +12,14 @@
     (battery)
     (wifi)
     time))
+; ━━━━ workspace━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
 
+(deflisten workspace "scripts/workspace")
 
 (defwidget workspaces []
   (literal :content workspace))
 
-
+; ━━━━ music━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
 
 (defwidget music []
   (box :class "music"
@@ -28,6 +28,11 @@
        :halign "center"
     {music != "" ? "🎵${music}" : ""}))
 
+
+(deflisten music :initial ""
+  "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
+
+; ━━━━ volume ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
 
 (defwidget volume [label value onchange]
   (box :orientation "h"
@@ -39,6 +44,14 @@
            :active {onchange != ""}
            :value value
            :onchange onchange)))
+
+
+
+(defpoll volume :interval "1s"
+  "scripts/getvol")
+
+
+
 ; ━━━━ battery ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
 
 (defwidget battery []
@@ -88,16 +101,6 @@
         :class "icon ${wifi == 0 ? 'disconnected' : 'connected'} "
         :text "${wifi == 0 ? '󰖪 ' : '󱚽 ' }"))))
 
-
-
-; ━━━━ music━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
-(deflisten music :initial ""
-  "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
-
-; ━━━━ volume ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
-
-(defpoll volume :interval "1s"
-  "scripts/getvol")
 
 ; ━━━━ date ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
 (defpoll time :interval "10s"
