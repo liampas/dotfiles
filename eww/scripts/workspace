@@ -1,77 +1,5 @@
 #!/bin/bash
 
-circles () {
-
-# check if exists
-w1=$(hyprctl workspaces | grep "ID 1")
-w2=$(hyprctl workspaces | grep "ID 2")
-w3=$(hyprctl workspaces | grep "ID 3")
-w4=$(hyprctl workspaces | grep "ID 4")
-w5=$(hyprctl workspaces | grep "ID 5")
-w6=$(hyprctl workspaces | grep "ID 6")
-w7=$(hyprctl workspaces | grep "ID 7")
-w8=$(hyprctl workspaces | grep "ID 8")
-w9=$(hyprctl workspaces | grep "ID 9")
-
-# check if current
-f1=$(hyprctl activeworkspace | grep "ID 1")
-f2=$(hyprctl activeworkspace | grep "ID 2")
-f3=$(hyprctl activeworkspace | grep "ID 3")
-f4=$(hyprctl activeworkspace | grep "ID 4")
-f5=$(hyprctl activeworkspace | grep "ID 5")
-f6=$(hyprctl activeworkspace | grep "ID 6")
-f7=$(hyprctl activeworkspace | grep "ID 7")
-f8=$(hyprctl activeworkspace | grep "ID 8")
-f9=$(hyprctl activeworkspace | grep "ID 9")
-
-# set default/unfocused icon
-icon1=""
-icon2=""
-icon3=""
-icon4=""
-icon5=""
-icon6=""
-icon7=""
-icon8=""
-icon9=""
-
-# set focused icon
-
-if [ "$f1" ]; then
-    icon1=""
-elif [ "$f2" ]; then
-    icon2=""
-elif [ "$f3" ]; then
-    icon3=""
-elif [ "$f4" ]; then
-    icon4=""
-elif [ "$f5" ]; then
-    icon5=""
-elif [ "$f6" ]; then
-    icon6=""
-elif [ "$f7" ]; then
-    icon7=""
-elif [ "$f8" ]; then
-    icon8=""
-elif [ "$f9" ]; then
-    icon9=""
-fi
-
-
-
-echo "(box :class \"workspaces\" :orientation \"h\" :spacing 5 :space-evenly \"false\" \
-(button :onclick \"hyprctl dispatch workspace 1\" \"$icon1\") \
-(button :onclick \"hyprctl dispatch workspace 2\" \"$icon2\") \
-(button :onclick \"hyprctl dispatch workspace 3\" \"$icon3\") \
-(button :onclick \"hyprctl dispatch workspace 4\" \"$icon4\") \
-(button :onclick \"hyprctl dispatch workspace 5\" \"$icon5\") \
-(button :onclick \"hyprctl dispatch workspace 6\" \"$icon6\") \
-(button :onclick \"hyprctl dispatch workspace 7\" \"$icon7\") \
-(button :onclick \"hyprctl dispatch workspace 8\" \"$icon8\") \
-(button :onclick \"hyprctl dispatch workspace 9\" \"$icon9\"))"
-
-}
-
 
 numbers () {
 
@@ -141,9 +69,6 @@ echo -n "(box :class \"workspaces\" :orientation \"h\" :spacing 5 :space-evenly 
 }
 
 
-
-
-#replace all numbers by cercles below if you want
 numbers
 
 # refresh when the workspace is changed
