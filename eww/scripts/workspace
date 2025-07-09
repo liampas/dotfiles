@@ -128,20 +128,14 @@ elif [ "$f8" ]; then
     class8="focus"
 elif [ "$f9" ]; then
     class9="focus"
+elif [ "$fplus" ]; then
+    class10="focus"
 fi
 
 
 
-echo "(box :class \"workspaces\" :orientation \"h\" :spacing 5 :space-evenly \"false\" \
-(button :onclick \"hyprctl dispatch workspace 1\" :class \"$class1\" \"1\") \
-(button :onclick \"hyprctl dispatch workspace 2\" :class \"$class2\" \"2\") \
-(button :onclick \"hyprctl dispatch workspace 3\" :class \"$class3\" \"3\") \
-(button :onclick \"hyprctl dispatch workspace 4\" :class \"$class4\" \"4\") \
-(button :onclick \"hyprctl dispatch workspace 5\" :class \"$class5\" \"5\") \
-(button :onclick \"hyprctl dispatch workspace 6\" :class \"$class6\" \"6\") \
-(button :onclick \"hyprctl dispatch workspace 7\" :class \"$class7\" \"7\") \
-(button :onclick \"hyprctl dispatch workspace 8\" :class \"$class8\" \"8\") \
-(button :onclick \"hyprctl dispatch workspace 9\" :class \"$class9\" \"9\"))"
+echo -n "(box :class \"workspaces\" :orientation \"h\" :spacing 5 :space-evenly \"false\" "
+[ "$w1" ] && echo -n "(button :onclick \"hyprctl dispatch workspace 1\" :class \"$class1\" \"1\") "
 
 
 }
