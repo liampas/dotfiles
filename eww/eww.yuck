@@ -8,7 +8,7 @@
 
 (defwidget sidestuff []
   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
-    (metric :label "🔊"
+    (volume :label "🔊"
             :value volume
             :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%")
     (battery)
@@ -29,9 +29,10 @@
     {music != "" ? "🎵${music}" : ""}))
 
 
-(defwidget metric [label value onchange]
+; ━━━━ volume ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
+(defwidget volume [label value onchange]
   (box :orientation "h"
-       :class "metric"
+       :class "volume"
        :space-evenly false
     (box :class "label" label)
     (scale :min 0
