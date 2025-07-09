@@ -24,6 +24,7 @@ f6=$(hyprctl activeworkspace | grep "ID 6")
 f7=$(hyprctl activeworkspace | grep "ID 7")
 f8=$(hyprctl activeworkspace | grep "ID 8")
 f9=$(hyprctl activeworkspace | grep "ID 9")
+fplus=$(hyprctl activeworkspace | grep "ID 10")
 
 # set default/unfocused icon
 class1="unfocus"
@@ -64,6 +65,16 @@ fi
 
 echo -n "(box :class \"workspaces\" :orientation \"h\" :spacing 5 :space-evenly \"false\" "
 [ "$w1" ] && echo -n "(button :onclick \"hyprctl dispatch workspace 1\" :class \"$class1\" \"1\") "
+[ "$w2" ] && echo -n "(button :onclick \"hyprctl dispatch workspace 2\" :class \"$class2\" \"2\") "
+[ "$w3" ] && echo -n "(button :onclick \"hyprctl dispatch workspace 3\" :class \"$class3\" \"3\") "
+[ "$w4" ] && echo -n "(button :onclick \"hyprctl dispatch workspace 4\" :class \"$class4\" \"4\") "
+[ "$w5" ] && echo -n "(button :onclick \"hyprctl dispatch workspace 5\" :class \"$class5\" \"5\") "
+[ "$w6" ] && echo -n "(button :onclick \"hyprctl dispatch workspace 6\" :class \"$class6\" \"6\") "
+[ "$w7" ] && echo -n "(button :onclick \"hyprctl dispatch workspace 7\" :class \"$class7\" \"7\") "
+[ "$w8" ] && echo -n "(button :onclick \"hyprctl dispatch workspace 8\" :class \"$class8\" \"8\") "
+[ "$w9" ] && echo -n "(button :onclick \"hyprctl dispatch workspace 9\" :class \"$class9\" \"9\") "
+[ "$fplus" ] && echo -n "(button :onclick \"hyprctl dispatch workspace 10\" :class \"$class9\" \"+\")"
+echo ")"
 
 
 }
