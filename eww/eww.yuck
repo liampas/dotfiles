@@ -1,3 +1,5 @@
+(deflisten workspace "scripts/workspace")
+
 (defwidget bar []
   (centerbox :orientation "h"
     (workspaces)
@@ -13,15 +15,11 @@
     (wifi)
     time))
 
-; ━━━━ workspaces ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
-
-(deflisten workspace "scripts/workspace")
 
 (defwidget workspaces []
   (literal :content workspace))
 
 
-; ━━━━ music ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
 
 (defwidget music []
   (box :class "music"
@@ -30,13 +28,7 @@
        :halign "center"
     {music != "" ? "🎵${music}" : ""}))
 
-(deflisten music :initial ""
-  "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
 
-(defpoll volume :interval "1s"
-  "scripts/getvol")
-
-; ━━━━ volume ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
 (defwidget volume [label value onchange]
   (box :orientation "h"
        :class "volume"
@@ -47,7 +39,6 @@
            :active {onchange != ""}
            :value value
            :onchange onchange)))
-
 ; ━━━━ battery ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
 
 (defwidget battery []
@@ -99,12 +90,19 @@
 
 
 
+; ━━━━ music━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
+(deflisten music :initial ""
+  "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
 
-; ━━━━ time ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
+; ━━━━ volume ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
+
+(defpoll volume :interval "1s"
+  "scripts/getvol")
+
+; ━━━━ date ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
 (defpoll time :interval "10s"
-  "date '+%H:%M %b %d'")
+  "date '+%H:%M   %b %d'")
 
-; ==== bar ===================================================================
 (defwindow bar
   :monitor 0
   :windowtype "dock"
@@ -115,18 +113,3 @@
                       :anchor "top center")
   :reserve (struts :side "top" :distance "4%")
   (bar))
-
-; ━━━━ activate linux ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
-  (defwidget activate-linux []
-  (box
-    :orientation "v"
-    :halign "start"
-    :valign "start"
-    (label :xalign 0 :markup "<span font_size=\"large\">Activate Linux</span>")
-    (label :xalign 0 :text "Go to Settings to activate Linux")))
-
-(defwindow activate-linux
-  :monitor 1
-  :stacking "bg"
-  :geometry (geometry :x "50px" :y "64px" :width "250px" :anchor "bottom right")
-  (activate-linux))
