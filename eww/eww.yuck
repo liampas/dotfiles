@@ -117,3 +117,19 @@
                       :anchor "top center")
   :reserve (struts :side "top" :distance "4%")
   (bar))
+
+
+; ━━━━ activate linux ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
+(defwidget activate-linux []
+  (box
+    :orientation "v"
+    :halign "start"
+    :valign "start"
+    (label :xalign 0 :markup "<span font_size=\"large\">Activate Linux</span>")
+    (label :xalign 0 :text "Go to Settings to activate Linux")))
+
+(defwindow activate-linux
+  :monitor 0
+  :stacking "fg"
+  :geometry (geometry :x "64px" :y "64px" :width "250px" :anchor "bottom right")
+  (activate-linux))
