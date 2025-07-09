@@ -13,7 +13,7 @@ w6=$(hyprctl workspaces | grep "ID 6")
 w7=$(hyprctl workspaces | grep "ID 7")
 w8=$(hyprctl workspaces | grep "ID 8")
 w9=$(hyprctl workspaces | grep "ID 9")
-
+wplus=$(hyprctl workspaces | grep "ID 10")
 # check if current
 f1=$(hyprctl activeworkspace | grep "ID 1")
 f2=$(hyprctl activeworkspace | grep "ID 2")
@@ -73,7 +73,7 @@ echo -n "(box :class \"workspaces\" :orientation \"h\" :spacing 5 :space-evenly 
 [ "$w7" ] && echo -n "(button :onclick \"hyprctl dispatch workspace 7\" :class \"$class7\" \"7\") "
 [ "$w8" ] && echo -n "(button :onclick \"hyprctl dispatch workspace 8\" :class \"$class8\" \"8\") "
 [ "$w9" ] && echo -n "(button :onclick \"hyprctl dispatch workspace 9\" :class \"$class9\" \"9\") "
-[ "$fplus" ] && echo -n "(button :onclick \"hyprctl dispatch workspace 10\" :class \"$class9\" \"+\")"
+[ "$wplus" ] && echo -n "(button :onclick \"hyprctl dispatch workspace 10\" :class \"$class9\" \"+\")"
 echo ")"
 
 
