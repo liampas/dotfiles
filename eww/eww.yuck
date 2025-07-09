@@ -6,6 +6,7 @@
 
 (defwidget sidestuff []
   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
+    (systray)
     (volume :label "🔊"
             :value volume
             :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%")
