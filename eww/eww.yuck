@@ -7,12 +7,14 @@
 (defwidget sidestuff []
   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
     (systray)
-    (volume :label "🔊"
+    (volume :label ""
             :value volume
             :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%")
     (battery)
     (wifi)
-    time))
+    (time)
+    (notification)
+    ))
 ; ━━━━ workspace━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
 
 (deflisten workspace "scripts/workspace")
@@ -34,12 +36,18 @@
   "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
 
 ; ━━━━ volume ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
+;(deflisten volume "scripts/notification")
 
 (defwidget volume [label value onchange]
   (box :orientation "h"
        :class "volume"
        :space-evenly false
     (box :class "label" label)
+    (button :onclick "pactl set-sink-mute @DEFAULT_SINK@ toggle" :class "unmute" "󰕾")
+;      (literal :content mute))
+
+
+
     (scale :min 0
            :max 101
            :active {onchange != ""}
@@ -104,9 +112,17 @@
 
 
 ; ━━━━ date ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
-(defpoll time :interval "10s"
-  "date '+%H:%M   %b %d'")
+;(defpoll time :interval "10s"
+;  "date '+%H:%M   %b %d'")
+(defpoll time_poll :interval "1s" "date '+%H:%M %b %d'")
 
+(defwidget time []
+  (box :class "time"
+    :space-evenly true
+    ;(label :class "icon" :text "")
+    (label :text time_poll)))
+
+; ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 (defwindow bar
   :monitor 0
   :windowtype "dock"
@@ -117,6 +133,13 @@
                       :anchor "top center")
   :reserve (struts :side "top" :distance "4%")
   (bar))
+
+; ━━━━ notification ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
+(deflisten notification "scripts/notification")
+
+(defwidget notification []
+
+      (literal :content notification))
 
 
 ; ━━━━ activate linux ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
