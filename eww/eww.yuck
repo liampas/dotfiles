@@ -1,3 +1,14 @@
+; ===== variables =========================================================
+
+;volume
+(defpoll volume :interval "1s" "scripts/volume --volume")
+(defpoll VICON :interval "1s" `scripts/volume --icon`)
+(defpoll VCLASS :interval "1s" `scripts/volume --class`)
+
+
+
+
+; ===== widgets =========================================================
 (defwidget bar []
   (centerbox :orientation "h"
     (workspaces)
@@ -15,14 +26,14 @@
     (time)
     (notification)
     ))
-; ━━━━ workspace━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
+; ━━━━ workspace ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
 
 (deflisten workspace "scripts/workspace")
 
 (defwidget workspaces []
   (literal :content workspace))
 
-; ━━━━ music━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
+; ━━━━ music ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
 
 (defwidget music []
   (box :class "music"
@@ -36,17 +47,12 @@
   "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
 
 ; ━━━━ volume ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
-;(deflisten volume "scripts/notification")
-
 (defwidget volume [label value onchange]
   (box :orientation "h"
        :class "volume"
        :space-evenly false
     (box :class "label" label)
-    (button :onclick "pactl set-sink-mute @DEFAULT_SINK@ toggle" :class "unmute" "󰕾")
-;      (literal :content mute))
-
-
+    (button :onclick "pactl set-sink-mute @DEFAULT_SINK@ toggle" :class "${VCLASS}" "${VICON}")
 
     (scale :min 0
            :max 101
@@ -55,9 +61,6 @@
            :onchange onchange)))
 
 
-
-(defpoll volume :interval "1s"
-  "scripts/getvol")
 
 
 

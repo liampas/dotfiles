@@ -4,7 +4,7 @@
 
 $text: #ffffff;
 $red: #DA4453;
-(defpoll mute :interval "10s" "bash scripts/mute")
+/*(defpoll mute :interval "10s" "bash scripts/mute")*/
 
 * {
   font-family: "AurulentSansM Nerd Font", "Symbols Nerd Font";
@@ -105,8 +105,8 @@ $red: #DA4453;
 color: red;
 }
 
-.on {
-
-color: green;
-
+.muted {
+  color: red;
 }
+
+
