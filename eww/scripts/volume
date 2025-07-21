@@ -1,0 +1,35 @@
+#!/bin/bash
+
+MUTE=$(pactl get-sink-mute @DEFAULT_SINK@)
+
+volume() {
+pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | tr -d '%'
+
+}
+
+
+class() {
+if [ "$MUTE" = "Mute: no" ]; then
+    echo "unmuted"
+else
+    echo "muted"
+fi
+
+}
+
+
+icon () {
+if [ "$MUTE" = "Mute: no" ]; then
+    echo "󰕾"
+else
+    echo "󰖁"
+fi
+}
+
+if [[ "$1" == "--class" ]]; then
+	class
+elif [[ "$1" == "--icon" ]]; then
+	icon
+elif [[ "$1" == "--volume" ]]; then
+    volume
+fi
