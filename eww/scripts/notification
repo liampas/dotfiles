@@ -1,0 +1,25 @@
+#!/bin/bash
+
+notifications () {
+DND=$(swaync-client -D)
+
+echo -n "(box  :orientation \"h\" :space-evenly \"false\" "
+
+if [ "$DND" = "true" ]; then
+    echo -n "(button :onclick \"swaync-client -t\" :class \"notifications-off\" \"󰂛 \") "
+else
+    echo -n "(button :onclick \"swaync-client -t\" :class \"notifications-on\" \"󰂚 \") "
+fi
+echo ")"
+
+}
+
+
+#swaync-client -s
+
+notifications
+
+
+swaync-client -s | while read -r line; do
+    notifications
+done
