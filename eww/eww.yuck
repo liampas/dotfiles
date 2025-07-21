@@ -4,6 +4,7 @@
 (defpoll volume :interval "1s" "scripts/volume --volume")
 (defpoll VICON :interval "1s" `scripts/volume --icon`)
 (defpoll VCLASS :interval "1s" `scripts/volume --class`)
+(defpoll VSCLASS :interval "1s" `scripts/volume --sclass`)
 
 
 
@@ -49,7 +50,7 @@
 ; ━━━━ volume ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
 (defwidget volume [label value onchange]
   (box :orientation "h"
-       :class "volume"
+       :class "${VSCLASS}"
        :space-evenly false
     (box :class "label" label)
     (button :onclick "pactl set-sink-mute @DEFAULT_SINK@ toggle" :class "${VCLASS}" "${VICON}")

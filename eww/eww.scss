@@ -32,6 +32,13 @@ $red: #DA4453;
   border-radius: 10px;
 }
 
+.volume scale trough highlight {
+  all: unset;
+  background-color: #D35D6E;
+  color: #000000;
+  border-radius: 10px;
+}
+
 .volume scale trough {
   all: unset;
   background-color: #4e4e4e;
@@ -41,6 +48,31 @@ $red: #DA4453;
   margin-left: 10px;
   margin-right: 20px;
 }
+
+.mvolume scale trough highlight {
+  all: unset;
+  background-color: #415788;
+  color: #24272A;
+  border-radius: 10px;
+}
+
+.mvolume scale trough highlight {
+  all: unset;
+  background-color: #444444;
+  color: #000000;
+  border-radius: 10px;
+}
+
+.mvolume scale trough {
+  all: unset;
+  background-color: #4e4e4e;
+  border-radius: 50px;
+  min-height: 6px;
+  min-width: 50px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
 
 .mute scale trough highlight {
   all: unset;
