@@ -1,25 +1,29 @@
-{
-    "label" : "shutdown",
+{   "label" : "shutdown",
     "action" : "systemctl poweroff",
     "text" : "Shutdown",
     "keybind" : "s"
 }
-{
-    "label" : "reboot",
+
+{   "label" : "reboot",
     "action" : "systemctl reboot",
     "text" : "Reboot",
     "keybind" : "r"
 }
-{
-    "label" : "sleep",
+
+{   "label" : "sleep",
     "action" : "systemctl sleep",
     "text" : "Sleep",
     "keybind" : "h"
 }
-{
-    "label" : "exit",
+
+{   "label" : "exit",
     "action" : "hyprctl dispatch exit",
     "text" : "Exit",
     "keybind" : "q"
 }
 
+{   "label" : "lock",
+    "action" : "hyprlock",
+    "text" : "Lock",
+    "keybind" : "l"
+}
