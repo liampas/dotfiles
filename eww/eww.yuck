@@ -6,18 +6,28 @@
 (defpoll VCLASS :interval "1s" `scripts/volume --class`)
 (defpoll VSCLASS :interval "1s" `scripts/volume --sclass`)
 
-
-
+;time
+(defpoll time_poll :interval "1s" "date '+%H:%M %b %d'")
+;date
+(defpoll date_poll :interval "1s" "date '+%H:%M'")
 
 ; ===== widgets =========================================================
 (defwidget bar []
   (centerbox :orientation "h"
     (workspaces)
     (music)
-    (sidestuff)))
+    (right)
+    ))
 
-(defwidget sidestuff []
-  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
+(defwidget f-bar []
+  (centerbox :orientation "h"
+    (blank)
+    (blank)
+    (fright)
+    ))
+
+(defwidget right []
+  (box :class "right" :orientation "h" :space-evenly false :halign "end"
     (systray)
     (volume :label ""
             :value volume
@@ -27,8 +37,18 @@
     (time)
     (notification)
     ))
-; ━━━━ workspace ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
 
+
+(defwidget fright []
+  (box :class "bar" :orientation "h" :space-evenly false :halign "end"
+    ;(systray)
+    (volume :label ""
+            :value volume
+            :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%")
+    ;(battery)
+    (time)
+    ))
+; ━━━━ workspace ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
 (deflisten workspace "scripts/workspace")
 
 (defwidget workspaces []
@@ -60,10 +80,6 @@
            :active {onchange != ""}
            :value value
            :onchange onchange)))
-
-
-
-
 
 ; ━━━━ battery ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
 
@@ -115,16 +131,18 @@
         :text "${wifi == 0 ? '󰖪 ' : '󱚽 ' }"))))
 
 
-; ━━━━ date ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
-;(defpoll time :interval "10s"
-;  "date '+%H:%M   %b %d'")
-(defpoll time_poll :interval "1s" "date '+%H:%M %b %d'")
-
+; ━━━━ time ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
 (defwidget time []
   (box :class "time"
     :space-evenly true
-    ;(label :class "icon" :text "")
     (label :text time_poll)))
+
+
+; ━━━━ date ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
+(defwidget date []
+  (box :class "time"
+    :space-evenly true
+    (label :text date_poll)))
 
 ; ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 (defwindow bar
@@ -138,13 +156,33 @@
   :reserve (struts :side "top" :distance "4%")
   (bar))
 
-; ━━━━ notification ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
+
+(defwindow f-bar
+  :monitor 1
+  :windowtype "dock"
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "10%"
+                      :height "45px"
+                      :anchor "top right")
+  :reserve (struts :side "top" :distance "4%")
+  (f-bar))
+; ━━━━ notification ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 (deflisten notification "scripts/notification")
 
 (defwidget notification []
 
       (literal :content notification))
 
+
+; ━━━━ blank ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
+(defwidget blank []
+  (tooltip
+    (label :class "blank" :text " ")
+    (box :class "blank"
+      :space-evenly false
+      (label
+        ))))
 
 ; ━━━━ activate linux ╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸
 (defwidget activate-linux []

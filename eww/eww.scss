@@ -13,14 +13,16 @@ $red: #DA4453;
 // Global Styles
 .bar {
   background-color: #3a3a3a;
-  color: #b0b4bc;
+  color: #ffffff;
   padding: 5px;
+  //font-weight: bold;
+      font-size: 16px;
 
 }
 
 // Styles on classes (see eww.yuck for more information)
 
-.sidestuff slider {
+.right slider {
   all: unset;
   color: #ffd5cd;
 }
@@ -43,7 +45,7 @@ $red: #DA4453;
   all: unset;
   background-color: #4e4e4e;
   border-radius: 50px;
-  min-height: 6px;
+  min-height: 15px;
   min-width: 50px;
   margin-left: 10px;
   margin-right: 20px;
@@ -67,7 +69,7 @@ $red: #DA4453;
   all: unset;
   background-color: #4e4e4e;
   border-radius: 50px;
-  min-height: 6px;
+  min-height: 15px;
   min-width: 50px;
   margin-left: 10px;
   margin-right: 20px;
@@ -105,7 +107,7 @@ $red: #DA4453;
 .battery, .time, .date .tray .speakers .mic .wifi {
   font-family: "AurulentSansM Nerd Font", "Symbols Nerd Font";
   color: $text;
-  font-size: 10px;
+  font-size: 15px;
 
 }
 
@@ -138,7 +140,7 @@ color: red;
 }
 
 .muted {
-  color: red;
+  color: #95515b;
 }
 
 
