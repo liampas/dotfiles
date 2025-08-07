@@ -17,7 +17,7 @@ while true; do
         done
     )
 
-    selection=$(echo "$options" | cut -d'|' -f1 | dmenu -i -l 20)
+    selection=$(echo "$options" | cut -d'|' -f1 | dmenu -c -i -l 20)
 
     [[ -z "$selection" ]] && exit 0
 
