@@ -35,12 +35,23 @@ while true; do
 
     [[ -z "$selection" ]] && exit 0
 
+    #folder
     if [[ "$selection" == \[*\] ]]; then
         folder_name="${selection:1:-1}"
         current_dir="$current_dir/$folder_name"
-    else
+        continue
+    fi
+
+    #.desktop file
+    #if its from the list
+    if echo "$options" | grep -Fxq "$selection|$(echo "$options" | grep "^$selection|" | cut -d'|' -f2-)"; then
         cmd=$(echo "$options" | grep "^$selection|" | cut -d'|' -f2-)
         [[ -n "$cmd" ]] && setsid sh -c "$cmd" >/dev/null 2>&1 &
+        exit 0
+    else
+        #if you entered something not from the list
+
+        dmenu_run -l 20 -c
         exit 0
     fi
 done
