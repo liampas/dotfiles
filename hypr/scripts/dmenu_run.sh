@@ -2,9 +2,19 @@
 
 APP_DIR="/usr/share/applications"
 current_dir="$APP_DIR"
+DMENU=(dmenu)
+
+#flags thing
+while [[ "$1" =~ ^- ]]; do
+    DMENU+=("$1")
+    shift
+    if [[ "$1" =~ ^[0-9]+$ ]]; then
+        DMENU+=("$1")
+        shift
+    fi
+done
 
 while true; do
-    # Build list: folder names + .desktop file names
     options=$(
         for f in "$current_dir"/*; do
             if [[ -d "$f" ]]; then
@@ -17,7 +27,7 @@ while true; do
         done
     )
 
-    selection=$(echo "$options" | cut -d'|' -f1 | dmenu -c -i -l 20)
+    selection=$(echo "$options" | cut -d'|' -f1 | "${DMENU[@]}")
 
     [[ -z "$selection" ]] && exit 0
 
