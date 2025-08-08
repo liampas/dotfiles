@@ -40,7 +40,7 @@ while true; do
         current_dir="$current_dir/$folder_name"
     else
         cmd=$(echo "$options" | grep "^$selection|" | cut -d'|' -f2-)
-        [[ -n "$cmd" ]] && setsid $cmd >/dev/null 2>&1 &
+        [[ -n "$cmd" ]] && setsid sh -c "$cmd" >/dev/null 2>&1 &
         exit 0
     fi
 done
