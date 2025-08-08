@@ -1,18 +1,22 @@
 #!/bin/bash
 
 APP_DIR="/usr/share/applications"
-current_dir="$APP_DIR"
 DMENU=(dmenu)
 
-#flags thing
+# Parse flags
 while [[ "$1" =~ ^- ]]; do
-    DMENU+=("$1")
-    shift
-    if [[ "$1" =~ ^[0-9]+$ ]]; then
+    if [[ "$1" == "--dir" ]]; then
+        shift
+        APP_DIR="$1"
+        shift
+    else
         DMENU+=("$1")
         shift
+        [[ "$1" =~ ^[0-9]+$ ]] && DMENU+=("$1") && shift
     fi
 done
+
+current_dir="$APP_DIR"
 
 while true; do
     options=$(
