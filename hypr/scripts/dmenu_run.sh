@@ -1,7 +1,7 @@
 #!/bin/bash
 
 APP_DIR="/usr/share/applications"
-DMENU=(dmenu)
+DMENU=(dmenu -i)
 
 # Parse flags
 while [[ "$1" =~ ^- ]]; do
