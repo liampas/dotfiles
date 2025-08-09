@@ -4,9 +4,29 @@ WALLPAPER_DIR="$HOME/Pictures/wallpapers/"
 CURRENT_WALL=$(hyprctl hyprpaper listloaded | head -n 1)
 WALLPAPER=$(find "$WALLPAPER_DIR" -type f ! -name "$(basename "$CURRENT_WALL")" | shuf -n 1)
 
+
+delete(){
+deletecurrentwall() { \
+  mv $CURRENT_WALL ~/.local/share/Trash/files/
+  notify-send "wallpaper deleted"
+  ~/.config/hypr/scripts/wallpaper.sh
+}
+
+timetochoose() { \
+choice=$(printf "yes\\nno" | dmenu -p "do you really want to delete this one?" -l 2)
+
+case "$choice" in
+  "yes")deletecurrentwall;;
+  "no")
+
+esac
+}
+
+timetochoose
+}
+
+
 # Get a random wallpaper that is not the current one
-
-
 while [[ "$#" -gt 0 ]]; do
   case "$1" in
 	-d|--dir) WALLPAPER_DIR="$2"; 
@@ -14,7 +34,15 @@ WALLPAPER=$(find "$WALLPAPER_DIR" -type f ! -name "$(basename "$CURRENT_WALL")" 
 	shift 
 	;;
 	-w) WALLPAPER="$2"; shift ;;
-	-h|--help|*) echo "Usage: $0 [-d wallpaper directory] [-w specifies a wallpaper]"
+	-D)
+		delete
+		exit 0
+		;;
+
+
+
+
+	-h|--help|*) echo "Usage: $0 [-d wallpaper directory] [-D delete the current wallpaper] [-w specifies a wallpaper]"
 exit 0
 ;;
     esac
