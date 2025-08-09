@@ -2,13 +2,28 @@
 
 WALLPAPER_DIR="$HOME/wallpapers/"
 CURRENT_WALL=$(hyprctl hyprpaper listloaded | head -n 1)
+WALLPAPER=$(find "$WALLPAPER_DIR" -type f ! -name "$(basename "$CURRENT_WALL")" | shuf -n 1)
 
 # Get a random wallpaper that is not the current one
-WALLPAPER=$(find "/home/liam/Pictures/wallpapers" -type f ! -name "$(basename "$CURRENT_WALL")" | shuf -n 1)
+
+
+while [[ "$#" -gt 0 ]]; do
+  case "$1" in
+	-d|--dir) WALLPAPER_DIR="$2"; 
+WALLPAPER=$(find "$WALLPAPER_DIR" -type f ! -name "$(basename "$CURRENT_WALL")" | shuf -n 1)
+	shift 
+	;;
+	-w) WALLPAPER="$2"; shift ;;
+	-h|--help|*) echo "Usage: $0 [-d wallpaper directory] [-w specifies a wallpaper]"
+exit 0
+;;
+    esac
+    shift
+done
 
 # Apply the selected wallpaper
 hyprctl hyprpaper reload ,"$WALLPAPER"
-
+echo "$WALLPAPER"
 wal -i $WALLPAPER
 
 
