@@ -1,6 +1,13 @@
 #!/bin/bash
 
 # variable for floating mode
+
+reload_waybar(){
+killall waybar
+waybar
+	
+}
+
 floatingmode=$(grep 'floatingmode' ~/.config/hypr/scripts/toggles.state | cut -d '=' -f 2)
 
 if [ $floatingmode -eq 0 ]; then
@@ -86,7 +93,7 @@ timetochoose() { \
         "window mode: floating") floating;;
         "window mode: tilling") tilling;;
         'random wallpaper') ~/.config/hypr/scripts/wallpaper.sh;;
-        'start waybar') ~/.config/hypr/scripts/reload-waybar.sh;;
+        'start waybar') reload_waybar;;
         'night mode') ~/.config/hypr/scripts/night-mode.sh;;
         'day mode') killall hyprsunset;;
         'notifications on') swaync-client -df;;
