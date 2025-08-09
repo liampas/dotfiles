@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-WALLPAPER_DIR="$HOME/wallpapers/"
+WALLPAPER_DIR="$HOME/Pictures/wallpapers/"
 CURRENT_WALL=$(hyprctl hyprpaper listloaded | head -n 1)
 WALLPAPER=$(find "$WALLPAPER_DIR" -type f ! -name "$(basename "$CURRENT_WALL")" | shuf -n 1)
 
