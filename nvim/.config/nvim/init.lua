@@ -36,6 +36,9 @@ Plug('nvim-treesitter/nvim-treesitter')
 Plug('nvim-tree/nvim-tree.lua')
 Plug('uZer/pywal16.nvim', { [ 'as' ] = 'pywal16' })
 
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'romgrk/barbar.nvim'
 vim.call('plug#end')
 
 
