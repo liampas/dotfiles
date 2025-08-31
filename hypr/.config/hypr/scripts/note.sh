@@ -57,22 +57,25 @@ createdaily () {
 
 	getlastdaily
 
-	line=$(grep -n "# Journal" ${lastdayfile} | awk -F":" '{print $1}')
+	linestart=$(grep -n "\-\-\-" ${lastdayfile} | awk -F":" '{print $1}' | awk 'NR==1')
+	lineend=$(grep -n "\-\-\-" ${lastdayfile} | awk -F":" '{print $1}' | awk 'NR==2')
 
 	#very bad code ahead
-	if [ ! $line ]; then
-		line=$(grep -n "---" ${lastdayfile} | awk -F":" '{print $1}')
-
-		if [ ! $line ]; then
-			line=$(grep -n "# daily note" ${lastdayfile} | awk -F":" '{print $1}')
-			if [ ! $line ]; then
-				line=$(grep -n "# diary" ${lastdayfile} | awk -F":" '{print $1}')
-			fi
-		fi
+	if [ ! $linestart ]; then
+		notify-send "could find something to bring over to the daily"
 	fi
 
-	head --lines ${line} ${lastdayfile} >> "$folder"/daily-notes/"$today".md
+	echo "#daily-note " >> "$folder"/daily-notes/"$today".md
+	echo "" >> "$folder"/daily-notes/"$today".md
 
+	echo "# Today's events" >> "$folder"/daily-notes/"$today".md
+	calcurse -d today >> "$folder"/daily-notes/"$today".md
+	
+	echo "" >> "$folder"/daily-notes/"$today".md
+	sed -n ${linestart},${lineend}p ${lastdayfile} >> "$folder"/daily-notes/"$today".md
+	
+	echo "" >> "$folder"/daily-notes/"$today".md
+	echo "# Journal" >> "$folder"/daily-notes/"$today".md
 }
 
 selected() {
