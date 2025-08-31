@@ -1,6 +1,7 @@
 vim.g.mapleader = ";"
 
-
+vim.opt["tabstop"] = 4
+vim.opt["shiftwidth"] = 4
 
 --insert time/date
 vim.api.nvim_set_keymap('n', '<leader>d', [[<cmd>lua insert_date()<CR>]], { noremap = true, silent = true })
@@ -39,6 +40,13 @@ Plug('uZer/pywal16.nvim', { [ 'as' ] = 'pywal16' })
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'romgrk/barbar.nvim'
+
+Plug 'vimwiki/vimwiki'
+--vim.cmd("let g:vimwiki_list = [{'path': '~/Nextcloud/Vault/'}]")
+vim.cmd("let g:vimwiki_list = [{ 'syntax': 'markdown','ext': 'md', 'path': '~/Nextcloud/Vault/'}]")
+
+--vim.cmd("let g:vimwiki_list = [{'path': '~/Nextcloud/Vault/'}]")
+
 vim.call('plug#end')
 
 
