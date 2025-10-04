@@ -27,3 +27,9 @@
     "text" : "Lock",
     "keybind" : "l"
 }
+
+{   "label" : "lock-sleep",
+    "action" : "hyprlock & systemctl sleep",
+    "text" : "Lock & Sleep",
+    "keybind" : "l"
+}

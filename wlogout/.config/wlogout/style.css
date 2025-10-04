@@ -46,6 +46,11 @@ background-image: image(url("/home/liam/.config/wlogout/icons/exit.png"));
 background-image: image(url("/home/liam/.config/wlogout/icons/lock.png"));
 }
 
+#lock-sleep {
+background-image: image(url("/home/liam/.config/wlogout/icons/lock.png"));
+}
+
+
  /*
  * #suspend {
  *    background-image: image(url("/usr/share/wlogout/icons/suspend.png"), url("/usr/local/share/wlogout/icons/suspend.png"));

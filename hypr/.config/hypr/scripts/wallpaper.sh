@@ -12,11 +12,18 @@ deletecurrentwall() { \
   ~/.config/hypr/scripts/wallpaper.sh
 }
 
+movecurrentwall() { \
+  mv $CURRENT_WALL ~/Pictures/wallpapers/move/
+  notify-send "wallpaper moved"
+  ~/.config/hypr/scripts/wallpaper.sh
+}
+
 timetochoose() { \
-choice=$(printf "yes\\nno" | dmenu -p "do you really want to delete this one?" -l 2)
+choice=$(printf "yes\\nno\\nmoveit" | dmenu -p "do you really want to delete this one?" -l 3)
 
 case "$choice" in
   "yes")deletecurrentwall;;
+  "moveit")movecurrentwall;;
   "no")
 
 esac

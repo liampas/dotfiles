@@ -88,7 +88,7 @@ floating () { \
 
 
 timetochoose() { \
-    choice=$(printf "random wallpaper\\nwindow mode: $floatingmode2\\nstart waybar\\n$night mode\\nnotifications $DND\\npower: $power\\ndelete current wallpaper" | dmenu -c -l 20 -p "Quick Settings: ")
+    choice=$(printf "random wallpaper\\nwindow mode: $floatingmode2\\nstart waybar\\n$night mode\\nnotifications $DND\\npower: $power\\ndelete current wallpaper\\nwallpaper" | dmenu -c -l 20 -p "Quick Settings: ")
     case "$choice" in
         "window mode: floating") floating;;
         "window mode: tilling") tilling;;
@@ -102,6 +102,7 @@ timetochoose() { \
         'power: balanced') powerprofilesctl set balanced;;
         'power: performance') powerprofilesctl set performance;;
         'delete current wallpaper') ~/.config/hypr/scripts/wallpaper.sh -D;;
+        'wallpaper') ~/.config/hypr/scripts/wallpaper.sh -d ~/Pictures/wallpaper_liam/move & mplayer ~/Music/SoundFX/m4a/youtube-uwuuuuu.m4a;;
     esac
 }
 
