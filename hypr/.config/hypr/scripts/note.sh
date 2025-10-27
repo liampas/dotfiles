@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 folder=$HOME/Nextcloud/Vault/
-TERMINAL=alacritty
+TERMINAL=$'kitty --class note'
+TERMINAL_daily=$'kitty --class daily'
 editor=nvim
 
 newnote () { \
@@ -9,13 +10,13 @@ newnote () { \
 : "${name:=$(date +%F_%T | tr ':' '-')}"
 
 
-setsid -f "$TERMINAL" -e "$editor" $folder$name".md" >/dev/null 2>&1
+setsid -f "kitty --class note" -e "$editor" $folder$name".md" >/dev/null 2>&1
 }
 imbadatcoding () {
 	if [[ $choice ]]; then
 
 	#does the same thing as newnote but with another variable because I'm not good enough to know how to do it cleanly
-	setsid -f "$TERMINAL" -e "$editor" $folder$choice".md" >/dev/null 2>&1
+	setsid -f $TERMINAL -e "$editor" $folder$choice".md" >/dev/null 2>&1
 else
 	exit
 	fi
@@ -27,7 +28,7 @@ daily () {
 	if [[ ! -f $dailypath ]]; then
 		createdaily
 	fi
-		setsid -f "$TERMINAL" -e "$editor" "$dailypath" >/dev/null 2>&1
+		setsid -f $TERMINAL_daily -e "$editor" "$dailypath" >/dev/null 2>&1
 }
 
 getlastdaily () {
@@ -103,7 +104,7 @@ selected() {
 	case "$choice" in
 		Daily) daily ;;
 		New) newnote ;;
-		*.md) setsid -f "$TERMINAL" -e "$editor" "$folder/$choice" >/dev/null 2>&1 ;;
+		*.md) setsid -f $TERMINAL -e "$editor" "$folder/$choice" >/dev/null 2>&1 ;;
 		*) imbadatcoding ;;
 	esac
 }
