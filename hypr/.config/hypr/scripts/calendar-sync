@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+rm ~/.local/share/calcurse/apts
+cd ./calendar/
+# import 
+curl -o parents.ics https://liampas.ca/calendar/parents.ics
+curl -o cours.ics https://liampas.ca/nextcloud/remote.php/dav/public-calendars/QLmfCbccsiwcaqDY?export
+curl -o personal.ics https://liampas.ca/nextcloud/remote.php/dav/public-calendars/ZtGSd8QQEANAq3iA?export
+curl -o cegep.ics https://liampas.ca/nextcloud/remote.php/dav/public-calendars/g4NWgpkAWQy8a35P?export
+
+calcurse -i cours.ics
+calcurse -i parents.ics
+calcurse -i personal.ics
+calcurse -i cegep.ics
+calcurse -i birthdays.ics
