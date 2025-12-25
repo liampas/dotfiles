@@ -8,7 +8,7 @@ waybar
 	
 }
 
-floatingmode=$(grep 'floatingmode' ~/.config/hypr/scripts/toggles.state | cut -d '=' -f 2)
+floatingmode=$(grep 'floatingmode' ~/.config/scripts/toggles.state | cut -d '=' -f 2)
 
 if [ $floatingmode -eq 0 ]; then
     floatingmode2=$"tilling"
@@ -60,7 +60,7 @@ tilling () { \
     hyprctl keyword windowrulev2 "unset,float,class:.*"
 
     #sets the floating mode
-    sed -i 's/floatingmode=0/floatingmode=1/' ~/.config/hypr/scripts/toggles.state
+    sed -i 's/floatingmode=0/floatingmode=1/' ~/.config/scripts/toggles.state
     floatingmode=1
 
     hyprctl reload
@@ -77,7 +77,7 @@ floating () { \
     hyprctl keyword windowrulev2 "float,class:.*"
 
     #sets the floating mode
-    sed -i 's/floatingmode=1/floatingmode=0/' ~/.config/hypr/scripts/toggles.state
+    sed -i 's/floatingmode=1/floatingmode=0/' ~/.config/scripts/toggles.state
     floatingmode=0
 
     #enables the snaping
@@ -92,18 +92,18 @@ timetochoose() { \
     case "$choice" in
         "window mode: floating") floating;;
         "window mode: tilling") tilling;;
-        'random wallpaper') ~/.config/hypr/scripts/wallpaper.sh;;
+        'random wallpaper') ~/.config/scripts/wallpaper.sh;;
         'start waybar') reload_waybar;;
-        'night mode') ~/.config/hypr/scripts/night-mode.sh;;
+        'night mode') ~/.config/scripts/night-mode.sh;;
         'day mode') killall hyprsunset;;
         'notifications on') swaync-client -df;;
         'notifications off') swaync-client -dn;;
         'power: eco') powerprofilesctl set power-saver;;
         'power: balanced') powerprofilesctl set balanced;;
         'power: performance') powerprofilesctl set performance;;
-        'delete current wallpaper') ~/.config/hypr/scripts/wallpaper.sh -D;;
+        'delete current wallpaper') ~/.config/scripts/wallpaper.sh -D;;
         'sync nextcloud') ~/nextcloud-sync-cmd/sync.sh;;
-        'wallpaper') ~/.config/hypr/scripts/wallpaper.sh -d ~/Pictures/wallpaper_liam/move & mplayer ~/Music/SoundFX/m4a/youtube-uwuuuuu.m4a;;
+        'wallpaper') ~/.config/scripts/wallpaper.sh -d ~/Pictures/wallpaper_liam/move & mplayer ~/Music/SoundFX/m4a/youtube-uwuuuuu.m4a;;
     esac
 }
 
