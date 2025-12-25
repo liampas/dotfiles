@@ -1,4 +1,4 @@
-folder=$HOME/Nextcloud/Vault/  
+folder=$HOME/Nextcloud/notes/
 
 today=$(date +"%Y-%m-%d")                                                                     
 time=$(date +"(%H:%M) ")
@@ -14,7 +14,7 @@ note="$(echo "" | dmenu -b -sb "#8A5CF5" -nf "#d8dee9" -p "$time" <&-)" || exit 
 
 #determine where to put the note in the file
 line=$(awk '/# Journal/{ print NR; exit }' $dailypath)
-line=$(($line-4))
+line=$(($line-2))
 empty=$(sed -n "${line}p" "$dailypath")
 while [[ $empty ]]
 do

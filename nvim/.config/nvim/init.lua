@@ -51,6 +51,17 @@ Plug 'nvim-tree/nvim-web-devicons'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'romgrk/barbar.nvim'
 
+
+--Plug 'nvim-lua/plenary.nvim'
+--Plug 'nvim-telescope/telescope.nvim'
+--Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release --target install' }
+--local builtin = require('telescope.builtin')
+--vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+--vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+--vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+--vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+
+
 Plug 'vimwiki/vimwiki'
 --vim.cmd("let g:vimwiki_list = [{'path': '~/Nextcloud/Vault/'}]")
 vim.cmd("let g:vimwiki_list = [{ 'syntax': 'markdown','ext': 'md', 'path': '~/Nextcloud/Vault/'}]")

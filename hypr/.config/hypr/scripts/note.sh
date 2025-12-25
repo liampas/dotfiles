@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-folder=$HOME/Nextcloud/Vault/
+folder=$HOME/Nextcloud/notes/
 TERMINAL=$'kitty --class note'
 TERMINAL_daily=$'kitty --class daily'
 editor=nvim
@@ -26,7 +26,8 @@ daily () {
 	today=$(date +"%Y-%m-%d")
 	dailypath="${folder}daily-notes/${today}.md"
 	if [[ ! -f $dailypath ]]; then
-		createdaily
+
+		echo "the daily doesnt exist, either cry, wait until it does or go on the server and use the creation script"
 	fi
 		setsid -f $TERMINAL_daily -e "$editor" "$dailypath" >/dev/null 2>&1
 }

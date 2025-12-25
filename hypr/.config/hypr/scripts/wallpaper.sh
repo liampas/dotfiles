@@ -56,6 +56,7 @@ exit 0
     shift
 done
 
+hyprpaper
 # Apply the selected wallpaper
 hyprctl hyprpaper reload ,"$WALLPAPER"
 echo "$WALLPAPER"
